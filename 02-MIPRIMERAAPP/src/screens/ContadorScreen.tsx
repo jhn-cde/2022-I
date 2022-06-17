@@ -21,6 +21,17 @@ export const ContadorScreen = () => {
         onPress = {() => setContador(contador - 1)}
         position = {'bl'}
       />
+
+      <Fab
+        title="*2"
+        onPress = {() => setContador(contador*2)}
+        position = {'tr'}
+      />
+      <Fab
+        title="^2"
+        onPress = {() => setContador(contador*contador)}
+        position = {'tl'}
+      />
     </View>
   )
 }
