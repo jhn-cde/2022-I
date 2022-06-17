@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, TouchableNativeFeedback} from 'react-native';
-import { Platform } from 'react-native';
 
 interface Props{
   title: string;
