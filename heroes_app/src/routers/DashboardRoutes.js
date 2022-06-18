@@ -11,14 +11,16 @@ const AppRouter = () => {
     return (
       <div>
         <Navbar/>
-        <Routes>
-          <Route path="/" element={<MarvelScreen/>}/>
-          <Route path="/hero/:heroeId" element={<HeroScreen/>}/>
-          <Route path="/marvel" element={<MarvelScreen/>}/>
-          <Route path="/dc" element={<DcScreen/>}/>
-          <Route path="/login" element={<LoginScreen/>}/>
-          <Route path="/search" element={<SearchScreen/>}/>
-        </Routes>
+        <div className="container mt-3">
+          <Routes>
+            <Route path="/" element={<MarvelScreen/>}/>
+            <Route path="/hero/:heroeId" element={<HeroScreen/>}/>
+            <Route path="/marvel" element={<MarvelScreen/>}/>
+            <Route path="/dc" element={<DcScreen/>}/>
+            <Route path="/login" element={<LoginScreen/>}/>
+            <Route path="/search" element={<SearchScreen/>}/>
+          </Routes>
+        </div>
       </div>
     )
 }
