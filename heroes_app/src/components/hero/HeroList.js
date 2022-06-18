@@ -1,4 +1,4 @@
-import { getHeroByPublisher } from '../../selector/getHeroByPoblisher';
+import { getHeroByPublisher } from '../../selector/getHeroByPublisher';
 import { HeroCard } from './HeroCard';
 
 export const HeroList = ({publisher}) => {

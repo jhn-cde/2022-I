@@ -46,12 +46,12 @@ const Navbar = () => {
                     <span className='nav-item nav-link text-info'>
                         Johan
                     </span>
-                    <button
+                    <NavLink
                         className="btn nav-link" 
                         to="/login"
                     >
                         Logout
-                    </button>
+                    </NavLink>
                 </ul>
             </div>
         </nav>
