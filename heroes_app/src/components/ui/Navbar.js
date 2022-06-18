@@ -27,8 +27,12 @@ const Navbar = () => {
                     </NavLink>
                     <NavLink 
                         className={
-                            ({isActive}) => "nav-item nav-link "
-                                             + (isActive ? 'active' : '')
+                            ({isActive}) =>
+                            "nav-item nav-link "
+                            + (isActive
+                                ? 'active'
+                                : ''
+                            )
                         } 
                         to="/search"
                     >
@@ -42,12 +46,12 @@ const Navbar = () => {
                     <span className='nav-item nav-link text-info'>
                         Johan
                     </span>
-                    <button
+                    <NavLink
                         className="btn nav-link" 
                         to="/login"
                     >
                         Logout
-                    </button>
+                    </NavLink>
                 </ul>
             </div>
         </nav>

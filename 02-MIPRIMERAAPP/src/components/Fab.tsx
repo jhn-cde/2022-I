@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, TouchableNativeFeedback} from 'react-native';
-import { Platform } from 'react-native';
 
 interface Props{
   title: string;
@@ -11,10 +10,13 @@ export const Fab = ({title, onPress, position = 'br'}: Props) => {
   return(
     <View
       style={[
-          styles.fabLocation,
-          position === 'br'
-        ? styles.right
-        : styles.left      
+        styles.fabLocation,
+        position[1] === 'r'
+          ? styles.right
+          : styles.left,
+        position[0] === 'b'
+          ? styles.bottom
+          : styles.top
       ]}
     >
       <TouchableNativeFeedback
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   top: {
-    top: 25,
+    top: 45,
   },
   bottom: {
     bottom: 25
