@@ -27,8 +27,12 @@ const Navbar = () => {
                     </NavLink>
                     <NavLink 
                         className={
-                            ({isActive}) => "nav-item nav-link "
-                                             + (isActive ? 'active' : '')
+                            ({isActive}) =>
+                            "nav-item nav-link "
+                            + (isActive
+                                ? 'active'
+                                : ''
+                            )
                         } 
                         to="/search"
                     >
