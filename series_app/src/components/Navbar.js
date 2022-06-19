@@ -25,6 +25,19 @@ export const Navbar = () => {
           </NavLink>
         </div>
       </div>
+      <div className="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-end">
+        <ul className="navbar-nav ml-auto">
+          <span className='nav-item nav-link text-info'>
+            Johan
+          </span>
+          <NavLink
+            className="btn nav-link" 
+            to="/login"
+          >
+            Logout
+          </NavLink>
+        </ul>
+      </div>
     </nav>
   )
 }
