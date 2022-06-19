@@ -1,17 +1,11 @@
 import { Link } from "react-router-dom"
 
-export const CharacterCard = ({
+export const CharacterCardOverlay = ({
   char_id,
   name,
   birthday,
   occupation,
   img,
-  status,
-  nickname,
-  appearance,
-  portrayed,
-  category,
-  better_call_saul_appearance,
 }) => {
   return(
     <div className="col animate__animated animate__fadeIn col-sm-12 col-md-6 col-lg-4 mb-4">

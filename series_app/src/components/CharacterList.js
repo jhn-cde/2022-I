@@ -1,5 +1,5 @@
 import { getCharacterByCategory } from "../selector/getCharacterByCategory"
-import { CharacterCard } from './CharacterCard'
+import { CharacterCardOverlay } from './CharacterCardOverlay'
 
 export const CharacterList = ({ category }) => {
   const characters = getCharacterByCategory(category)
@@ -10,7 +10,7 @@ export const CharacterList = ({ category }) => {
       <div className='row animate__animated animate__fadeIn' style={{width:'100%'}}>
         {
           characters.map(character => (
-            <CharacterCard key={character.char_id} {...character}/>
+            <CharacterCardOverlay key={character.char_id} {...character}/>
           ))
         }
       </div>
