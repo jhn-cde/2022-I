@@ -14,7 +14,7 @@ export const DashboardRoutes = () => {
       <div className="container mt-3">
         <Routes>
           <Route path="/" element={<BbScreen/>}/>
-          <Route path="/character/:characterId" element={<CharacterScreen/>}/>
+          <Route path="/character/:charId" element={<CharacterScreen/>}/>
           <Route path="/bb" element={<BbScreen/>}/>
           <Route path="/bcs" element={<BcsScreen/>}/>
           <Route path="/login" element={<LoginScreen/>}/>
