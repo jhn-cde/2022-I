@@ -7,7 +7,7 @@ export const CharacterList = ({ category }) => {
   return (
     <>
     {
-      <div className='row rows-cols-1 row-cols-md-3 g-3 animate__animated animate__fadeIn' style={{width:'100%'}}>
+      <div className='row animate__animated animate__fadeIn' style={{width:'100%'}}>
         {
           characters.map(character => (
             <CharacterCard key={character.char_id} {...character}/>
