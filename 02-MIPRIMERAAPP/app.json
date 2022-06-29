@@ -29,6 +29,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "Learning projects",
+    "githubUrl": "https://github.com/jhn-cde/2022-I/tree/master/02-MIPRIMERAAPP"
   }
 }
