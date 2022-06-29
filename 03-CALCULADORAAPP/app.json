@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "02-MIPRIMERAAPP",
-    "slug": "02-MIPRIMERAAPP",
+    "name": "03-CALCULADORAAPP",
+    "slug": "03-CALCULADORAAPP",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,7 +28,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "description": ""
+    }
   }
 }

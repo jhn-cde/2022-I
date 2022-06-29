@@ -1,9 +1,7 @@
-import { AppRouter } from "./routers/AppRouter";
-import './App.css'
 function App() {
   return (
     <div className="App">
-      <AppRouter/>  
+      <h1>WebGL corriendo con React</h1>
     </div>
   );
 }
