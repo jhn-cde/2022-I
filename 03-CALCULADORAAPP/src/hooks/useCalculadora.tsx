@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 
 enum Operadores {
-  sumar, restar, multiplicar, dividir
+  sumar, restar, multiplicar, dividir,
+  potencia
 }
 
 export const useCalculadora = () => {
@@ -84,6 +85,34 @@ export const useCalculadora = () => {
     ultimaOperacion.current = Operadores.sumar
   }
 
+  // potencia depende de dos numeros, por lo que necesita de btn calcular
+  const btnPotencia = () => {
+    cambiarNumPorAnterior()
+    ultimaOperacion.current = Operadores.potencia
+  }
+  // las siguientes operaciones solo dependen de un numero,
+  // por lo que no necesitan de btn calcular
+  const btnFraccion = () => {
+    const ansFraccion = Math.pow(Number(numero), -1)
+    setNumero(`${ansFraccion}`) // calcular directamente al apretar boton
+  }
+  const btnFactorial = () => {
+    const num = Number(numero)
+    let ansFactorial = -1 // por defecto, para valores negativos
+    // obtener factorial de numeros positivos
+    if(num >= 0){ // si numero es positivo obtener factorial
+      ansFactorial = 1
+      for(let i = num; i > 0; i--){
+        ansFactorial *= i
+      }
+    }
+    setNumero(`${ansFactorial}`) // calcular directamente al apretar boton
+  }
+  const btnRaizCuadrada = () => {
+    const ansRaizCuadrada = Math.sqrt(Number(numero))
+    setNumero(`${ansRaizCuadrada}`) // calcular directamente al apretar boton
+  }
+
   const calcular = () => {
     const num1 = Number( numeroAnterior )
     const num2 = Number( numero )
@@ -101,6 +130,11 @@ export const useCalculadora = () => {
       case Operadores.dividir:
         setNumero(`${num1 / num2}`)
         break;
+        //
+      case Operadores.potencia:
+        setNumero(`${Math.pow(num1, num2)}`)
+        break;
+
       default:
         break;
     }
@@ -117,6 +151,12 @@ export const useCalculadora = () => {
     btnMultiplicar,
     btnRestar,
     btnSumar,
+    //
+    btnPotencia,
+    btnFraccion,
+    btnFactorial,
+    btnRaizCuadrada,
+    //
     calcular
   }
 }
