@@ -1,5 +1,6 @@
 import { getCharacterByCategory } from "../selector/getCharacterByCategory"
 import { CharacterCardOverlay } from './CharacterCardOverlay'
+import { CharacterCardNormal } from './CharacterCardNormal'
 
 export const CharacterList = ({ category }) => {
   const characters = getCharacterByCategory(category)

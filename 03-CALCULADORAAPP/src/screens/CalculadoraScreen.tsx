@@ -16,6 +16,12 @@ export const CalculadoraScreen = () => {
     btnMultiplicar,
     btnRestar,
     btnSumar,
+    //
+    btnPotencia,
+    btnFraccion,
+    btnFactorial,
+    btnRaizCuadrada,
+    //
     calcular,
   } = useCalculadora()
   
@@ -35,6 +41,14 @@ export const CalculadoraScreen = () => {
       >
       { numero }
       </Text>
+
+      <View style={styles.fila}>
+        <BotonCalc text='x^y' color='#ff9427' accion={btnPotencia}/>
+        <BotonCalc text='1/x' color='#ff9427' accion={btnFraccion}/>
+        <BotonCalc text='x!' color='#ff9427' accion={btnFactorial}/>
+        <BotonCalc text='&radic;x' color='#ff9427' accion={btnRaizCuadrada} />
+      </View>
+
       <View style={styles.fila}>
         <BotonCalc text='C' color='#9b9b9b' accion={limpiar}/>
         <BotonCalc text='+/-' color='#9b9b9b' accion={positivoNegativo}/>
@@ -45,7 +59,7 @@ export const CalculadoraScreen = () => {
         <BotonCalc text='7' accion={armarNumero}/>
         <BotonCalc text='8' accion={armarNumero}/>
         <BotonCalc text='9' accion={armarNumero}/>
-        <BotonCalc text='x' color='#ff9427' accion={btnMultiplicar}/>
+        <BotonCalc text='*' color='#ff9427' accion={btnMultiplicar}/>
       </View>
       <View style={styles.fila}>
         <BotonCalc text='4' accion={armarNumero}/>
