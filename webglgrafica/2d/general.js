@@ -28,6 +28,7 @@ function setRandomShadow(gl, colors=null){
 
 
 
+
 function drawTriangulo(gl, x1, y1, x2, y2, x3, y3){
   // Triangulo
   let region = new Path2D();
