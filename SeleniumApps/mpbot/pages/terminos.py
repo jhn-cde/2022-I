@@ -63,7 +63,7 @@ class cTerminos:
     try:
       btnSubmit = self.driver.find_element(By.ID, 'btSubmitContact')
       print(btnSubmit.text)
-      #btnSubmit.click()
+      btnSubmit.click()
     except Exception as e:
       print(f'Error!.. generarReserva: {e}')
       return False
@@ -86,9 +86,9 @@ class cTerminos:
     if(self.leerYAceptar()):
       print('Leer y aceptar Ok.')
     else:
-      return False
+      return True
     #
     if not self.generarReserva():
-      return False
+      return True
     
     return True

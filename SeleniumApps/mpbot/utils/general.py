@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def datePicker(driver, id, fecha):
   year = fecha['year']
-  month = fecha['month']
+  month = str(int(fecha['month'])-1)
   day = fecha['day']
   print(f'Seleccionando fecha dia:{day}, mes:{month}, anio:{year}...')
   try:

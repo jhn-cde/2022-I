@@ -97,7 +97,10 @@ class cHorario:
   def disponibilidad(self):
     try:
       wait = WebDriverWait(self.tarifaContenedor, 5)
-      dispoBtn = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'btn-rojo')))
+      if(self.tarifa == 'general'):
+        dispoBtn = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'btn-adobe')))#'//button[normalize-space()="Disponibilidad"]')))
+      else:
+        dispoBtn = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'btn-rojo')))
       dispoBtn.click()
       return True
     except Exception as e:
@@ -107,8 +110,11 @@ class cHorario:
   # buscar horarios
   def getHorariosDisponibles(self):
     print('Obtener horarios disponibles...')
+    tmp = self.tarifaIni
+    if(self.tarifa == 'general'):
+      tmp = 'General'
 
-    identificador = f'fmRuta{self.tarifaIni}'
+    identificador = f'fmRuta{tmp}'
     try:
       wait = WebDriverWait(self.driver, 5)
       fmRuta = wait.until(EC.visibility_of_element_located((By.ID, identificador)))
@@ -130,6 +136,8 @@ class cHorario:
       for horario in horarios:
         clases = horario.get_attribute("class")
         if 'btn-disabled' not in clases:
+          print(horario.find_element(By.TAG_NAME, 'br').text)
+          
           horario.click()
           horarioSeleccionado = True
           break

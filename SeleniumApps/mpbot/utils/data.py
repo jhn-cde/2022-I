@@ -1,8 +1,9 @@
 horario = {
   'year':'2022',
   'month':'7',
-  'day':'10'
+  'day':'18'
 }
+hora_ingreso = '13:00 a 14:00 hrs'
 ruta = 'Llaqta de Machupicchu (Circuito 1, 2, 3 ó 4)'
 # -- rutas
 # 'Llaqta de Machupicchu (Circuito 1, 2, 3 ó 4)'
@@ -11,39 +12,55 @@ ruta = 'Llaqta de Machupicchu (Circuito 1, 2, 3 ó 4)'
 # 'Circuito 4 + Montaña Huchuypicchu'
 
 contacto = {
-  'correo': 'micorreo@gmail.com'
+  'correo': 'toe.johan@gmail.com'
 }
-
-visitantes = [
+visitantes1 = [
   {
-    'pais': 'Ecuador',
-    'tipodoc': 'DNI',
-    'nrodoc': '12345678',
-    'apellidos': 'Mirando Castillos',
-    'nombres': 'Armando',
+    'pais': 'United States',
+    'tipodoc': 'PAS',
+    'nrodoc': '665480799',
+    'apellidos': 'Carvajal',
+    'nombres': 'Marisol',
     'sexo': 'Femenino',
     'tipo': 'Adulto',
     'fNacimiento': {
-      'year':'2000',
-      'month':'10',
-      'day':'1'
+      'year':'1952',
+      'month':'12',
+      'day':'19'
+    }
+  },
+]
+visitantes2 = [
+  {
+    'pais': 'Peru',
+    'tipodoc': 'DNI',
+    'nrodoc': '46480244',
+    'apellidos': 'Navarro Gonzaga',
+    'nombres': 'Claudia Gabriela',
+    'sexo': 'Femenino',
+    'tipo': 'Adulto',
+    'fNacimiento': {
+      'year':'1990',
+      'month':'8',
+      'day':'8'
     }
   },
   {
-    'pais': 'Colombia',
-    'tipodoc': 'PAS',
-    'nrodoc': '45645678',
-    'apellidos': 'Quinto Catachura',
-    'nombres': 'Lady',
+    'pais': 'Peru',
+    'tipodoc': 'DNI',
+    'nrodoc': '46129937',
+    'apellidos': 'Cordova Bringas',
+    'nombres': 'David Alejandro',
     'sexo': 'Masculino',
-    'tipo': 'Estudiante',
+    'tipo': 'Adulto',
     'fNacimiento': {
-      'year':'1999',
-      'month':'5',
-      'day':'10'
+      'year':'1990',
+      'month':'1',
+      'day':'21'
     }
-  }
+  },
 ]
+
 # -- Tipos de documento
 # 1 PAS
 # 2 DNI
