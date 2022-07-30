@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { HeroesRoutes } from '../heroes';
 import { LoginPage } from '../auth';
-import { PivateRoute } from './PrivateRoute';
+import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 
 export const AppRouter = () => {
@@ -16,7 +16,7 @@ export const AppRouter = () => {
         } />
 
         <Route path="/*" element={ 
-          <PivateRoute>
+          <PrivateRoute>
             <HeroesRoutes />
           </PivateRoute>
         } />
