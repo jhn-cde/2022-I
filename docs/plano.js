@@ -19,11 +19,12 @@ function inicio() {
     lienzo.setSize(ancho, alto);
     document.body.appendChild(lienzo.domElement);
 
-    camara.position.z = 1500;
+    camara.position.z = 100;
     escenario.add(camara);
 
     cargaEjes();
-    crearPlano();
+    crearPiso();
+    crearMuro();
     cargaModelo();
 
     controles = new THREE.OrbitControls(camara, lienzo.domElement);
@@ -80,17 +81,27 @@ function cargaEjes() {
     escenario.add(ejes);
 }
 
-function crearPlano() {
-    geometriaPlano = new THREE.PlaneGeometry(1000, 1000, 10, 10);
-    texturaPlano = new THREE.TextureLoader().load('piso2.jpg');
+function crearPlano(filename, rotX, posX = 0, posY=0, posZ=0, rep=100, w = 1000, h = 1000) {
+    geometriaPlano = new THREE.PlaneGeometry(w, h, 10, 10);
+    texturaPlano = new THREE.TextureLoader().load(filename);
     texturaPlano.wrapS = texturaPlano.wrapT = THREE.RepeatWrapping;
-    texturaPlano.repeat.set(10, 10);
+    texturaPlano.repeat.set(rep, rep);
 
     materialPlano = new THREE.MeshBasicMaterial({ map: texturaPlano, side: THREE.DoubleSide });
     terreno = new THREE.Mesh(geometriaPlano, materialPlano);
     //terreno.rotation.y = -0.5;
-    terreno.rotation.x = Math.PI / 2;
+    terreno.position.x = posX
+    terreno.position.y = posY
+    terreno.position.z = posZ
+    terreno.rotation.x = rotX;
     escenario.add(terreno);
+}
+function crearPiso(){
+  crearPlano('piso2.jpg', Math.PI/2)
+}
+function crearMuro(){
+
+  crearPlano('muro.webp', Math.PI, 0, 500, -10, 25)
 }
 
 function animacion() {
