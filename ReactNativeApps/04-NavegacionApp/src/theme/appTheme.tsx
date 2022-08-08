@@ -20,10 +20,6 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white'
   },
-  customDrawer:{
-    flex: 1,
-    justifyContent: 'space-between'
-  },
   avatarContainer:{
     alignItems: 'center',
     marginTop: 20,
@@ -44,6 +40,9 @@ export const styles = StyleSheet.create({
   },
   copyrightContainer:{
     alignSelf: 'center',
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 20
   },
   copyrightText:{
     fontSize: 15

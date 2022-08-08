@@ -22,8 +22,8 @@ export const MenuLateral= () => {
 
 const MenuInterno = ({ navigation }: DrawerContentComponentProps) => {
   return (
-  <DrawerContentScrollView contentContainerStyle={{...styles.customDrawer}}>
-      <SafeAreaView style={{...styles.avatarContainer}}>
+  <DrawerContentScrollView contentContainerStyle={{flex: 1}}>
+      <View style={{...styles.avatarContainer}}>
         <Image
         source={{
           uri: 'https://images.all-free-download.com/images/graphiclarge/avatar_3_95970.jpg'
@@ -45,9 +45,10 @@ const MenuInterno = ({ navigation }: DrawerContentComponentProps) => {
             <Text style={styles.menuTexto} >Ajustes</Text>
           </TouchableOpacity>
         </View>
-      </SafeAreaView>
+      </View>
+
       <View style={{...styles.copyrightContainer}}>
-        <Text style={{...styles.copyrightText}} >&#169;johancde 2021</Text>
+        <Text style={{...styles.copyrightText}} >&#169;johancde 2022</Text>
       </View>
   </DrawerContentScrollView>
   )
