@@ -36,7 +36,7 @@ export const TopTabNavigator = () => {
           }
 
           return  (<Text style={{color}} >
-                    <Ionicons name={iconName} size={24} color='green' />
+                    <Ionicons name={iconName} size={24} color={color} />
                   </Text>) 
         },
         tabBarStyle:{

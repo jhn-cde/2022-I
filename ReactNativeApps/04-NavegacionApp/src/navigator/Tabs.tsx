@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Platform, Text, TouchableOpacity, View } from 'react-native'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { Tab1Screen } from '../screens/Tab1Screen'
 import { Tab2Screen } from '../screens/Tab2Screen'
@@ -30,20 +31,22 @@ const TabsAndroid = () => {
           let iconName: string
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1'
+              iconName = 'logo-ionic'
               break;
             case 'TopTabNavigator':
-              iconName = 'T2'
+              iconName = 'arrow-up'
               break;
             case 'StackNavigator':
-              iconName = 'St'
+              iconName = 'arrow-forward'
               break;
             default:
-              iconName = 'T'
+              iconName = 'logo-ionic'
               break;
           }
 
-          return <Text style={{color}}>{iconName}</Text> 
+          return  <Text style={{color}}>
+                    <Ionicons name={iconName} size={24} color={color} />
+                  </Text> 
         }
       })}
     >

@@ -2,8 +2,8 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { useEffect } from "react"
 import { Text, View } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
-import Ionicons from '@expo/vector-icons/Ionicons';
 import { colores, styles } from "../theme/appTheme";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const iconsList = [
   'play-circle', 'radio', 'musical-notes-outline',
