@@ -20,14 +20,91 @@ function inicio() {
     document.body.appendChild(lienzo.domElement);
 
     camara.position.z = 100;
+    camara.position.y = 40;
+    camara.position.z = 80;
+    
     escenario.add(camara);
 
     cargaEjes();
     crearPiso();
     crearMuro();
     cargaModelo();
+    cargaEstrellaExtruida()
+    cargaCunia()
+    cargaEsfera()
 
     controles = new THREE.OrbitControls(camara, lienzo.domElement);
+}
+
+function cargaEstrellaExtruida() {
+  var arregloExtruir  = [];
+  arregloExtruir.push(new THREE.Vector3(-49, 38, 0));
+  //-2.86, 76
+  arregloExtruir.push(new THREE.Vector3(-31.43, 38, 0));
+  //10, 112
+  arregloExtruir.push(new THREE.Vector3(-25, 56, 0));
+  //22.85, 76
+  arregloExtruir.push(new THREE.Vector3(-19.43, 38, 0));
+  //58, 76
+  arregloExtruir.push(new THREE.Vector3(-1, 38, 0));
+  //31.14, 52.8
+  arregloExtruir.push(new THREE.Vector3(-15.57, 26.4, 0));
+  //50, 0
+  arregloExtruir.push(new THREE.Vector3(-5, 0, 0));
+  //10, 34.54
+  arregloExtruir.push(new THREE.Vector3(-25, 17.27, 0));
+  //-30, 0
+  arregloExtruir.push(new THREE.Vector3(-45, 0, 0));
+  //-11.14, 52.80 
+  arregloExtruir.push(new THREE.Vector3(-35.57, 26.40, 0));
+
+  var formaExtruir = new THREE.Shape(arregloExtruir)
+  //extruir figura
+  var datoExtruir={
+    amount: 10,
+    bevelEnabled: true,
+    bevelSegments: 1,
+    steps: 5,
+    bevelThickness: 1
+  }
+  
+  var extrudeGeometria = new THREE.ExtrudeGeometry(formaExtruir, datoExtruir)
+  var extrudeMaterial = new THREE.MeshBasicMaterial({color: 0x005400, wireframe: false})
+  var mallaExtruir = new THREE.Mesh(extrudeGeometria, extrudeMaterial)
+  escenario.add(mallaExtruir)
+}
+function cargaCunia() {
+  var arregloExtruir  = [];
+  arregloExtruir.push(new THREE.Vector3(-18, 7, 20));
+  arregloExtruir.push(new THREE.Vector3(-18, 0, 20));
+  arregloExtruir.push(new THREE.Vector3(-8, 0, 20));
+  arregloExtruir.push(new THREE.Vector3(-18, 7, 20));
+
+  var formaExtruir = new THREE.Shape(arregloExtruir)
+  //extruir figura
+  var datoExtruir={
+    steps: 20,
+    depth: 16,
+    bevelEnabled: true,
+    bevelThickness: 1,
+    bevelSize: 1,
+    bevelOffset: 0,
+    bevelSegments: 1
+  }
+  
+  var extrudeGeometria = new THREE.ExtrudeGeometry(formaExtruir, datoExtruir)
+  var extrudeMaterial = new THREE.MeshBasicMaterial({color: 0x0000ff, wireframe: true})
+  var mallaExtruir = new THREE.Mesh(extrudeGeometria, extrudeMaterial)
+  escenario.add(mallaExtruir)
+}
+
+function cargaEsfera(){
+  const geometry = new THREE.SphereGeometry( 15, 32, 16 );
+  const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+  const sphere = new THREE.Line( geometry, material );
+  sphere.position.x = 60
+  sphere.position.y = 40
+  escenario.add(sphere)
 }
 
 function cargaModelo() {
@@ -59,6 +136,30 @@ function cargaModelo() {
     //creando la figura
     figura = new THREE.Line(geometria, material);
     escenario.add(figura);
+    //---------------------------------
+    var arregloExtruir  = [];
+    arregloExtruir.push(new THREE.Vector3(2, 7, 0));
+    arregloExtruir.push(new THREE.Vector3(7, 2, 0));
+    arregloExtruir.push(new THREE.Vector3(12, 7, 0));
+    arregloExtruir.push(new THREE.Vector3(12, 17, 0));
+    arregloExtruir.push(new THREE.Vector3(7, 12, 0));
+    arregloExtruir.push(new THREE.Vector3(2, 17, 0));
+    arregloExtruir.push(new THREE.Vector3(2, 7, 0));
+
+    var formaExtruir = new THREE.Shape(arregloExtruir)
+    //extruir figura
+    var datoExtruir={
+      amount: 10,
+      bevelEnabled: true,
+      bevelSegments: 1,
+      steps: 5,
+      bevelThickness: 1
+    }
+    
+    var extrudeGeometria = new THREE.ExtrudeGeometry(formaExtruir, datoExtruir)
+    var extrudeMaterial = new THREE.MeshBasicMaterial({color: 0xD35400, wireframe: false})
+    var mallaExtruir = new THREE.Mesh(extrudeGeometria, extrudeMaterial)
+    escenario.add(mallaExtruir)
 }
 
 function cargaEjes() {
@@ -101,7 +202,7 @@ function crearPiso(){
 }
 function crearMuro(){
 
-  crearPlano('muro.webp', Math.PI, 0, 500, -10, 25)
+  crearPlano('muro2.webp', Math.PI, 0, 500, -50, 50)
 }
 
 function animacion() {
