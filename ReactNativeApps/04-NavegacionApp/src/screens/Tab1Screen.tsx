@@ -5,6 +5,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context"
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { colores, styles } from "../theme/appTheme";
 
+const iconsList = [
+  'play-circle', 'radio', 'musical-notes-outline',
+  'code-slash-outline', 'moon', 'pause-circle-outline',
+  'airplane',  'camera-outline', 'battery-charging',
+  'git-commit-outline'
+]
+
 export const Tab1Screen = () => {
   const {top: paddingTop} = useSafeAreaInsets()
 
@@ -13,12 +20,18 @@ export const Tab1Screen = () => {
   //}, [])
   return(
     <View
-      style = {{paddingTop}}
+      style = {{...styles.globalMargin,paddingTop}}
     >
-      <Text style={styles.title}> Tab 1 </Text>
+      <Text style={styles.title}>Iconos</Text>
       <Text>
+
         <Ionicons name='rocket-outline' size={50} color={colores.primary} />
         <Ionicons name='rocket' size={50} color={colores.primary} />
+      </Text>
+      <Text>
+        {iconsList.map((iconName: String) => (
+          <Ionicons key={iconName} name={iconName} size={50} color={colores.primary} />
+        ))}
       </Text>
     </View>
   )
