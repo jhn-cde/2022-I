@@ -5,6 +5,7 @@ import { AlbumsScreen } from '../screens/AlbumsScreen';
 import { ChatScreen } from '../screens/ChatScreen';
 import { ContactsScreen } from '../screens/ContactsScreen';
 import { colores } from '../theme/appTheme';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -21,20 +22,22 @@ export const TopTabNavigator = () => {
           let iconName: string
           switch (route.name) {
             case 'Chat':
-              iconName = 'Ch'
+              iconName = 'chatbubbles'
               break;
             case 'Albums':
-              iconName = 'Al'
+              iconName = 'clipboard'
               break;
             case 'Contacts':
-              iconName = 'Cn'
+              iconName = 'people'
               break;
             default:
-              iconName = 'T'
+              iconName = 'chatbubbles'
               break;
           }
 
-          return <Text style={{color}}>{iconName}</Text> 
+          return  (<Text style={{color}} >
+                    <Ionicons name={iconName} size={24} color='green' />
+                  </Text>) 
         },
         tabBarStyle:{
           borderTopColor: colores.primary,
