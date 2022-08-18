@@ -31,22 +31,20 @@ const TabsAndroid = () => {
           let iconName: string
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'logo-ionic'
+              iconName = 'bandage-outline'
               break;
             case 'TopTabNavigator':
-              iconName = 'arrow-up'
+              iconName = 'basketball-outline'
               break;
             case 'StackNavigator':
-              iconName = 'arrow-forward'
+              iconName = 'bookmarks-outline'
               break;
             default:
               iconName = 'logo-ionic'
               break;
           }
 
-          return  <Text style={{color}}>
-                    <Ionicons name={iconName} size={24} color={color} />
-                  </Text> 
+          return  <Ionicons name={ iconName } size={24} color={color} />
         }
       })}
     >
