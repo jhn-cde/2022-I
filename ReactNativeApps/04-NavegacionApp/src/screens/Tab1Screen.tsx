@@ -3,7 +3,8 @@ import { useEffect } from "react"
 import { Text, View } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { colores, styles } from "../theme/appTheme";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Icon from '@expo/vector-icons/Ionicons';
+import { TouchableIcon } from "../components/TouchableIcon";
 
 const iconsList = [
   'play-circle', 'radio', 'musical-notes-outline',
@@ -25,12 +26,12 @@ export const Tab1Screen = () => {
       <Text style={styles.title}>Iconos</Text>
       <Text>
 
-        <Ionicons name='rocket-outline' size={50} color={colores.primary} />
-        <Ionicons name='rocket' size={50} color={colores.primary} />
+        <Icon name='rocket-outline' size={50} color={colores.primary} />
+        <Icon name='rocket' size={50} color={colores.primary} />
       </Text>
       <Text>
-        {iconsList.map((iconName: String) => (
-          <Ionicons key={iconName} name={iconName} size={50} color={colores.primary} />
+        {iconsList.map((iconName) => (
+            <TouchableIcon key={iconName} iconName={iconName} />
         ))}
       </Text>
     </View>
