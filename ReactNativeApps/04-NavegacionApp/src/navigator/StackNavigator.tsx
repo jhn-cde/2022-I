@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Pagina1Screen } from '../screens/Pagina1Screen';
 import { Pagina2Screen } from '../screens/Pagina2Screen';
 import { Pagina3Screen } from '../screens/Pagina3Screen';
@@ -15,6 +16,7 @@ export type RootStackParams = {
 const Stack = createStackNavigator();
 
 export const StackNavigator = () => {
+  const {top: paddingTop} = useSafeAreaInsets()
   return (
     <Stack.Navigator
       screenOptions={{

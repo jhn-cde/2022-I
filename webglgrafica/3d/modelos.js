@@ -9,11 +9,11 @@ var controls;  //manejo de camara con mouse
 //funciones
 function cargaModelo() {
     //creando el material
-    //const material = new THREE.LineBasicMaterial({ color: 0xff0000 });
+    const material = new THREE.LineBasicMaterial({ color: 0xff0000 });
 
     //creando coordenadas de varios puntos
-    //const puntos = [];
-    /*puntos.push(new THREE.Vector3(2, 7, 0));
+    const puntos = [];
+    puntos.push(new THREE.Vector3(2, 7, 0));
     puntos.push(new THREE.Vector3(7, 2, 0));
     puntos.push(new THREE.Vector3(12, 7, 0));
     puntos.push(new THREE.Vector3(12, 17, 0));
@@ -29,15 +29,13 @@ function cargaModelo() {
     puntos.push(new THREE.Vector3(2, 7, 2));//coordenada del origen */
 
     //creando geometria
-    //const geometria = new THREE.BufferGeometry().setFromPoints(puntos);
+    const geometria = new THREE.BufferGeometry().setFromPoints(puntos);
+
+    const geometry = new THREE.SphereGeometry( 15, 32, 16, Math.PI*0.5, Math.PI*2, Math.PI*0, Math.PI*0.5 );
+    //const material = new THREE.MeshBasicMaterial( { color: 0xffb300 } );
 
     //creando la figura
-    //figura = new THREE.Line(geometria, material);
-    
-    const geometry = new THREE.SphereGeometry( 15, 32, 16, Math.PI*0.5, Math.PI*2, Math.PI*0, Math.PI*0.5 );
-    const material = new THREE.MeshBasicMaterial( { color: 0xffb300 } );
-    figura = new THREE.Line( geometry, material );
-
+    figura = new THREE.Line(geometria, material);
     escenario.add(figura);
 
     cargaEjes();
@@ -72,8 +70,8 @@ function animacion() {
 
 function renderModelo() {
     figura.rotation.y += 0.01;
-    figura.rotation.x += 0.01;
-    figura.rotation.z += 0.01;
+    figura.rotation.x += 0.0;
+    figura.rotation.z += 0.0;
     lienzo.render(escenario, camara);
 }
 

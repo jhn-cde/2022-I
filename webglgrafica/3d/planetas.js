@@ -8,36 +8,31 @@ var controls;  //manejo de camara con mouse
 
 //funciones
 function cargaModelo() {
-  const r1 = 15
-  const r2 = 25
-  let geometry = new THREE.SphereGeometry( r1, 32, 20, Math.PI*1, Math.PI*1, Math.PI*0, Math.PI );
-  let material = new THREE.MeshBasicMaterial( { color: 0xffb300, side: THREE.DoubleSide } );
+  const r1 = 20
+  const w = 10
+  let geometry = new THREE.SphereGeometry( r1, 32, 32, Math.PI*1);
+  let material = new THREE.MeshBasicMaterial( { color: 0xc88310 } );
   let figura = new THREE.Mesh( geometry, material );
 
   escenario.add(figura);
   figuras.push(figura)
-  
-  //
-  geometry = new THREE.CylinderGeometry( r1+1, r1, 4, 32, 20, 1, true );
-  material = new THREE.MeshBasicMaterial( {color: 0xa90000, side: THREE.DoubleSide, wireframe: true} );
-  figura = new THREE.Mesh( geometry, material );
-  figura.rotation.x += Math.PI/2;
-  figura.position.z = -2.1
-  
-  escenario.add(figura);
-  figuras.push(figura)
 
+  //anillos:
   //
-  geometry = new THREE.RingGeometry( r1, r2, 64 );
-  material = new THREE.MeshBasicMaterial( { color: 0xffb300, side: THREE.DoubleSide } );
-  figura = new THREE.Mesh( geometry, material );
-  figura.position.z = 0
-  
-  escenario.add(figura);
-  figuras.push(figura)
-
+  nro_anillos = 12
+  wa = w/nro_anillos
+  for(let i = 0; i <nro_anillos; i++){
+    ri = wa*i + r1+5
+    rj = wa*(i+1) +r1+5
+    const color = randomColor0x(75, 75, 75)
+    geometry = new THREE.RingGeometry( ri, rj, 64 );
+    material = new THREE.MeshBasicMaterial( { color: color, side: THREE.DoubleSide } );
+    figura = new THREE.Mesh( geometry, material );
+    figura.rotation.x += 2*Math.PI/3;
+    escenario.add(figura);
+    figuras.push(figura)
+  }
   cargaEjes();
-   
 }
 
 function cargaEjes() {
@@ -68,9 +63,9 @@ function animacion() {
 
 function renderModelo() {
   figuras.forEach(figura => {
-    figura.rotation.y += 0.0;
-    figura.rotation.x += 0.0;
-    figura.rotation.z += 0.0;
+    figura.rotation.y += 0.005;
+    figura.rotation.x += 0.00;
+    figura.rotation.z += 0.01;
     lienzo.render(escenario, camara);
   });
 }
@@ -85,6 +80,18 @@ function inicio() {
     cargaModelo();
 
     controls = new THREE.OrbitControls(camara, lienzo.domElement);
+}
+
+function randomColor0x(r, g, b) {
+  red = (Math.round(Math.random()*r)).toString(16)
+  green = Math.round(Math.random()*g).toString(16)
+  blue = Math.round(Math.random()*b).toString(16)
+  
+  hexStr = (red.length<2? '0' : '') + red
+  hexStr += (green.length<2? '0' : '') + green
+  hexStr += (blue.length<2? '0' : '') + blue
+
+  return parseInt(hexStr, 16);
 }
 
 ///llamando proceso pricipal
