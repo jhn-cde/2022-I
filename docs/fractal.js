@@ -1,4 +1,5 @@
-const nBranches = 2
+const nBranches = 4
+const position = [0, 0, 0]
 function Tree(depth = 6, size = 100) {
   this.depth = depth;
   this.size = size;
@@ -14,7 +15,8 @@ function Tree(depth = 6, size = 100) {
   const material = new THREE.MeshStandardMaterial({ wireframe: false, color: '#42380E' });
   
   THREE.Mesh.call(this, geometry, material);
-  this.position.set(0, 0, 0)
+  
+  this.position.set(position[0], position[1], position[2])
 }
 
 Tree.prototype = Object.assign(Object.create(THREE.Mesh.prototype), {
@@ -28,6 +30,7 @@ Tree.prototype = Object.assign(Object.create(THREE.Mesh.prototype), {
 
     this.branches = [];
     const ang = (360/nBranches) * (Math.PI / 180)
+    
     for(let i = 0; i < nBranches; i++){
       const branch = new Tree(branchDepth, branchSize);
       branch.position.set(top.x, top.y, top.z);
