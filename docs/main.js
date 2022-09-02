@@ -30,7 +30,7 @@ function inicio() {
     camara.position.set(0, 500, 500)
     const { ambientLight, mainLight, pointLight } = createLights();
 
-    escenario.add(camara, ambientLight);
+    escenario.add(camara, pointLight);
 
     crearPiso()
 
